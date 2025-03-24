@@ -1,5 +1,6 @@
 fun main() {
     println("Hello World!")
+    myName("Maria",21)
 
     val age =22
     val name ="laura"
@@ -53,6 +54,13 @@ fun main() {
     var poppedValue = list.pop()
     println("After popping $list")
     println("Popped value: $poppedValue")
+}
+
+fun myName(
+    firstName:String?=null ,
+    age:Int
+){
+    println("Hello $firstName, you are $age years old")
 }
 class Solution(
 )
@@ -154,7 +162,7 @@ class LinkedList<T>{
 
 
 }
-To solve the problem of adding two numbers represented by linked lists, we need to consider the following:
+/*To solve the problem of adding two numbers represented by linked lists, we need to consider the following:
 
 Each linked list represents a number, where the digits are stored in reverse order. For example, the list [2, 4, 3] represents the number 342 (since the digits are in reverse order).
 We need to iterate over both linked lists simultaneously, add the corresponding digits, and take care of the carry if the sum exceeds 9.
@@ -168,11 +176,11 @@ Code Implementation:
 kotlin
 Copy
 class Solution {
-    fun addTwoNumbers(l1: ListNode?, l2: ListNode?): ListNode? {
+    fun addTwoNumbers(l1: LinkedList?, l2: LinkedList?): LinkedList? {
         var p1 = l1 // Pointer for first list
         var p2 = l2 // Pointer for second list
         var carry = 0 // Carry for the sum of digits
-        var dummyHead = ListNode(0) // Dummy node to start the result list
+        var dummyHead = LinkedList(0) // Dummy node to start the result list
         var current = dummyHead // Pointer to build the result list
 
         // Iterate through both lists until both are null and there's no carry left
@@ -182,7 +190,7 @@ class Solution {
 
             val sum = val1 + val2 + carry // Calculate the sum
             carry = sum / 10 // Update the carry for next iteration
-            current.next = ListNode(sum % 10) // Create a new node with the current digit
+            current.next = LinkedList(sum % 10) // Create a new node with the current digit
             current = current.next!! // Move the current pointer
 
             // Move p1 and p2 to the next nodes, if possible
@@ -215,6 +223,6 @@ Thus, the resulting linked list will be [7, 0, 8], which represents the sum 807.
 Time Complexity:
 The time complexity is O(max(N, M)), where N and M are the lengths of the two linked lists. We iterate through each list once.
 Space Complexity:
-The space complexity is O(max(N, M)) since we are creating a new linked list to store the result.
+The space complexity is O(max(N, M)) since we are creating a new linked list to store the result.*/
 
 
